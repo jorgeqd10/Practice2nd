@@ -10,7 +10,7 @@ import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class YourCartPage extends BasePage{
+public class YourCartPage extends BasePage {
     public YourCartPage() {
         PageFactory.initElements(getDriver(), this);
     }
@@ -22,41 +22,43 @@ public class YourCartPage extends BasePage{
 
     @FindBy(xpath = "//button[@data-test='checkout']")
     private WebElement checkoutBtn;
-    public void validateProductLabel(String value){
+
+    public void validateProductLabel(String value) {
         boolean flag = false;
-        for(int i = 0; i < cartItem.size(); i++){
+        for (int i = 0; i < cartItem.size(); i++) {
             String aux = cartItem.get(i).findElement(By.xpath(title)).getText();
-            if(aux.equals(value)){
+            if (aux.equals(value)) {
                 flag = true;
                 break;
+                //just testing there are no fixes
             }
         }
-        if(flag){
+        if (flag) {
             System.out.println("Label " + value + " is displayed correctly");
         } else {
             System.out.println("Label " + value + " is missing");
         }
     }
 
-    public void validatePricePrice(String value){
+    public void validatePricePrice(String value) {
         boolean flag = false;
-        for(int i = 0; i < cartItem.size(); i++){
+        for (int i = 0; i < cartItem.size(); i++) {
             String aux = cartItem.get(i).findElement(By.xpath(price)).getText();
-            if(aux.contains(value)){
+            if (aux.contains(value)) {
                 flag = true;
                 break;
             }
         }
-        if(flag){
+        if (flag) {
             System.out.println("Price " + value + " is displayed correctly");
         } else {
             System.out.println("Price " + value + " is missing");
         }
     }
-    public void clickcheckoutBtn(){
+
+    public void clickcheckoutBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn)).click();
     }
-
 
 
 }

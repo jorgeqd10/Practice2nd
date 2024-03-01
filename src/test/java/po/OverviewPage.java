@@ -10,10 +10,11 @@ import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class OverviewPage extends BasePage{
+public class OverviewPage extends BasePage {
     public OverviewPage() {
         PageFactory.initElements(getDriver(), this);
     }
+
     @FindBy(xpath = "//div[@class='cart_item']")
     private List<WebElement> cartItem;
     private String itemName = "//div[@class='inventory_item_name']";
@@ -21,21 +22,21 @@ public class OverviewPage extends BasePage{
     @FindBy(xpath = "//button[@data-test='finish']")
     private WebElement finishBtn;
 
-    public void validateItem(String value){
+    public void validateItem(String value) {
         boolean flag = false;
-        for(int i = 0; i < cartItem.size(); i++){
-            if(value.equals(cartItem.get(i).findElement(By.xpath(itemName)).getText())){
+        for (int i = 0; i < cartItem.size(); i++) {
+            if (value.equals(cartItem.get(i).findElement(By.xpath(itemName)).getText())) {
                 flag = true;
             }
         }
-        if(flag){
+        if (flag) {
             System.out.println("Label " + value + " is displayed correctly");
         } else {
             System.out.println("Label " + value + " is missing");
         }
     }
 
-    public void clickFinishBtn(){
+    public void clickFinishBtn() {
         wait.until(ExpectedConditions.elementToBeClickable(finishBtn)).click();
     }
 
