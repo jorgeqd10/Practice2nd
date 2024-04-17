@@ -18,7 +18,6 @@ Feature: smoke testing
     |firstName      | dato1 |
     |lastName       | dato2 |
     |zipCode        | dato3 |
-    #Then I fill out my information "dato1", "dato2", "dato3"
     And I click continue button
     And I validate "Sauce Labs Bike Light" is displayed on overview
     Then I click finish button
