@@ -1,9 +1,8 @@
 Feature: smoke testing
   Scenario: Validate use case 015
     Given I am opening sauce page
-    Then I enter "standard_user" username
-    Then I enter "secret_sauce" password
-    And I click login button
+    When User enters valid credentials
+    |standard_user      |     secret_sauce  |
     Then I click on sauce labs backpack add to cart button
     Then I click on sauce labs bike light add to cart button
     Then I click on sauce labs t shirt add to cart button
