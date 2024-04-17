@@ -14,7 +14,11 @@ Feature: smoke testing
     Then I validate "Sauce Labs Bolt T-Shirt" is displayed
     Then I validate "15.99" price is displayed
     And I click checkout button
-    Then I fill out my information "dato1", "dato2", "dato3"
+    Then I filling out my info
+    |firstName      | dato1 |
+    |lastName       | dato2 |
+    |zipCode        | dato3 |
+    #Then I fill out my information "dato1", "dato2", "dato3"
     And I click continue button
     And I validate "Sauce Labs Bike Light" is displayed on overview
     Then I click finish button
